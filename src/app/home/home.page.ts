@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ListCoursesService } from '../list-courses.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  allCourses = [];
 
-  constructor() {}
+  constructor(private courseSer: ListCoursesService, private router: Router) {}
 
+  ngOnInit() {
+    this.allCourses = this.courseSer.getAllCourses();
+  }
+
+  // goToDetails(id) {
+  //   this.router.navigate(['/details', id]);
+  // }
 }
