@@ -28,6 +28,18 @@ export class ListCoursesService {
     return this.tabCourses.find((element) => element.id == idCourse);
   }
 
+  deleteCourse(course) {
+    let i = this.tabCourses.indexOf(course);
+    this.tabCourses.splice(i, 1);
+
+    // console.log('Avant filter', this.tabCourses);
+
+    // this.tabCourses = this.tabCourses.filter(
+    //   (element) => element.id != course.id
+    // );
+    // console.log('Apres filter', this.tabCourses);
+  }
+
   getAllCourses() {
     return this.tabCourses;
   }

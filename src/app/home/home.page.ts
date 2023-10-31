@@ -18,5 +18,6 @@ export class HomePage {
 
   // goToDetails(id) {
   //   this.router.navigate(['/details', id]);
+  //   this.router.navigateByUrl('/nidhal/amine');
   // }
 }
