@@ -24,6 +24,16 @@ export class ListCoursesService {
   ];
   constructor() {}
 
+  addCourse(newCourse) {
+    newCourse.id = this.tabCourses[this.tabCourses.length - 1].id + 1;
+    // delete newCourse.author;
+    // console.log(newCourse);
+    newCourse.keywords = newCourse.keywords.split(',');
+    console.log(newCourse);
+
+    this.tabCourses.push(newCourse);
+  }
+
   getCourseById(idCourse) {
     return this.tabCourses.find((element) => element.id == idCourse);
   }

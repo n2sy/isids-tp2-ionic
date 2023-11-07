@@ -5,12 +5,32 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form>
+  <form class="ion-margin" #f="ngForm">
     <ion-label>Title</ion-label>
-    <ion-input />
-    <ion-label>Author</ion-label>
-    <ion-input></ion-input>
+    <ion-input
+      #inpTitle="ngModel"
+      minlength="5"
+      type="text"
+      ngModel
+      name="title"
+    />
+    <div *ngIf="inpTitle.invalid" class="alert alert-danger">
+      Le titre du cours > 5
+    </div>
 
-    <ion-button type="submit">Add Course</ion-button>
+    <ion-label>Author</ion-label>
+    <ion-input ngModel name="author"></ion-input>
+    <ion-label>Image</ion-label>
+    <ion-input type="url" ngModel name="image"></ion-input>
+    <ion-label>Keywords</ion-label>
+    <ion-input ngModel name="keywords"></ion-input>
+
+    <ion-button (click)="onSubmit(f.value)" type="submit"
+      >Add Course</ion-button
+    >
+
+    <pre>
+      {{ f.value | json}}
+    </pre>
   </form>
 </ion-content>
